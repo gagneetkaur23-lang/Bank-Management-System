@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Signup",
+            "request": "launch",
+            "mainClass": "Signup",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Login",
             "request": "launch",
             "mainClass": "Login",
