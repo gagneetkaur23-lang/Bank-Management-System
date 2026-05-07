@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Signup$Signup",
+            "request": "launch",
+            "mainClass": "Signup$Signup",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
             "name": "Signup",
             "request": "launch",
             "mainClass": "Signup",
