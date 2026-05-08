@@ -9,14 +9,14 @@ public class connection {
         
         try{
             //register jdbc driver
-
+Class.forName("com.mysql.cj.jdbc.Driver");
          //create connection
-c=DriverManager.getConnection("jdbc:mysql:///bankmanagementsystem","root","MySql@12345@");
+c=DriverManager.getConnection("jdbc:mysql://localhost:3306/bankmanagementsystem","root","MySql@12345@");
          //create statement 
 s=c.createStatement();
         }
         catch(Exception e){
-System.out.println("exception");
+System.out.println(e);
         }
     }
 }

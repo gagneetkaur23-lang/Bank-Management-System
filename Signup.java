@@ -128,11 +128,13 @@ setVisible(true);
         add(married);
         setVisible(true);
 
+ unmarried = new JRadioButton("Unmarried");
         unmarried.setBounds(390,350,110,30);
         unmarried.setBackground(Color.WHITE);
         add(unmarried);
         setVisible(true);
 
+         other= new JRadioButton("Other");
         other.setBounds(500,350,60,30);
         other.setBackground(Color.WHITE);
         add(other);
@@ -244,6 +246,10 @@ else{
     connection c = new connection();
     String query = "insert into signup values('"+formno+"','"+name+"','"+f_name+"','"+dob+"','"+gender+"','"+email+"','"+marital_status+"','"+address+"','"+state+"','"+pincode+"','"+city+"')";
     c.s.executeUpdate(query);
+
+    JOptionPane.showMessageDialog(null,"Data is inserted");
+    setVisible(false);
+    new Signup_2(formno).setVisible(true);
 }
 
 }
@@ -260,3 +266,4 @@ System.out.println(e);
 
     }
 }
+

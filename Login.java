@@ -85,7 +85,8 @@ cardTextField.setText("");
 pinTextField.setText("");
     }
     else if(ae.getSource()==signup){
-
+setVisible(false);
+new Signup().setVisible(true);
     }
 }
 

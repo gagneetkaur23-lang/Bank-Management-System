@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "opk",
+            "request": "launch",
+            "mainClass": "opk",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
+            "name": "Signup_2",
+            "request": "launch",
+            "mainClass": "Signup_2",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
             "name": "Signup$Signup",
             "request": "launch",
             "mainClass": "Signup$Signup",
