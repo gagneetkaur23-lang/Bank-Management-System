@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Signup_3",
+            "request": "launch",
+            "mainClass": "Signup_3",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
             "name": "opk",
             "request": "launch",
             "mainClass": "opk",
