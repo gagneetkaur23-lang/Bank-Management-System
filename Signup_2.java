@@ -30,7 +30,10 @@ String formno;
 setLayout(null);
 
         
-
+JLabel formno2=new JLabel("FORM NO."+formno);
+        formno2.setFont(new Font("raleway",Font.BOLD,14));
+        formno2.setBounds(700,10,150,40);
+        add(formno2);
         
         
         JLabel addDetails=new JLabel("Page 2. Additional Details");
@@ -269,8 +272,8 @@ if(a_yes.isSelected()){
 
     JOptionPane.showMessageDialog(null,"Data is inserted");
 
-    //setVisible(false);
-    //new Signup_2(formno).setVisible(true);
+    setVisible(false);
+    new Signup_3(formno).setVisible(true);
 
     }
 

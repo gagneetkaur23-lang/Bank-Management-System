@@ -13,11 +13,12 @@ import java.awt.event.*;
 
 
 public class Signup extends JFrame implements ActionListener{
-long random;
+String random;
 JTextField nameTextField,f_nameTextField,emailTextField,genderTextField,marital_statusTextField,addressTextField,cityTextField,stateTextField,pincodeTextField;
 JButton next;
 JRadioButton male,female,married,unmarried,other;
 JDateChooser datechooser;
+
     Signup(){
 
         setLayout(null);
@@ -27,8 +28,13 @@ JDateChooser datechooser;
         setLocation(280,10);
         setVisible(true);
 
-        Random no=new Random();
-        long random =(Math.abs(no.nextLong() % 9000L) + 1000L);
+        Random ran=new Random();
+        String random =""+(Math.abs(ran.nextLong() % 9000L) + 1000L);
+
+
+        //  long first4 = (no.nextLong() % 9000L) + 1000L;  
+          //    first = "" + Math.abs(first4); 
+
 
         JLabel formno=new JLabel("APPLICATION FORM NO."+random);
         formno.setFont(new Font("raleway",Font.BOLD,38));
@@ -202,6 +208,7 @@ setVisible(true);
         add(next);
         setVisible(true);
 
+        
         revalidate();
         repaint();
         setVisible(true);
