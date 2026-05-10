@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
 public class Login extends JFrame implements ActionListener {
 
 JButton login,clear,signup;
@@ -77,8 +78,30 @@ getContentPane().setBackground(Color.WHITE);   //change frame background
 }
 @Override
 public void actionPerformed(ActionEvent ae){
-    if(ae.getSource()==login){
 
+
+    if(ae.getSource()==login){
+        
+        
+        try{
+connection c= new connection();
+        String cardno= cardTextField.getText();
+        String pin= pinTextField.getText();
+        String query= "select * from login where cardno= '"+cardno+"' and pin ='"+pin+"'";
+ResultSet rs=c.s.executeQuery(query);
+if(rs.next()){
+setVisible(false);
+new Transactions().setVisible(true);
+}
+else{
+    JOptionPane.showMessageDialog(null, "Incorrect Card Number or Pin!");
+}
+        }
+        
+
+        catch(Exception e){
+
+        }
     }
     else if(ae.getSource()==clear){
 cardTextField.setText("");

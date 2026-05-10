@@ -25,7 +25,7 @@ JDateChooser datechooser;
 
         getContentPane().setBackground(Color.WHITE);
         setSize(850,800);
-        setLocation(280,10);
+        setLocation(250,10);
         setVisible(true);
 
         Random ran=new Random();
@@ -251,6 +251,7 @@ JOptionPane.showMessageDialog(null,"Add all details");
     
 else{
     connection c = new connection();
+    
     String query = "insert into signup values('"+formno+"','"+name+"','"+f_name+"','"+dob+"','"+gender+"','"+email+"','"+marital_status+"','"+address+"','"+state+"','"+pincode+"','"+city+"')";
     c.s.executeUpdate(query);
 
