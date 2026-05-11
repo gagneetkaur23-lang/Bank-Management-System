@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Deposit",
+            "request": "launch",
+            "mainClass": "Deposit",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
             "name": "Transactions",
             "request": "launch",
             "mainClass": "Transactions",

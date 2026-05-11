@@ -91,7 +91,7 @@ connection c= new connection();
 ResultSet rs=c.s.executeQuery(query);
 if(rs.next()){
 setVisible(false);
-new Transactions().setVisible(true);
+new Transactions(pin).setVisible(true);
 }
 else{
     JOptionPane.showMessageDialog(null, "Incorrect Card Number or Pin!");
