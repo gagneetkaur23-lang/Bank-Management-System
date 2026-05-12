@@ -4,7 +4,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.*;
 
 
@@ -36,6 +35,7 @@ image.add(deposit);
 
  cash_withdrawl = new JButton("CASH WITHDRAWL");
 cash_withdrawl.setBounds(320,325,150,25);
+cash_withdrawl.addActionListener(this);
 image.add(cash_withdrawl);
 
  fast_cash = new JButton("FAST CASH");
@@ -76,6 +76,9 @@ if(ae.getSource()==exit){
 else if(ae.getSource()== deposit){
     setVisible(false);
     new Deposit(pin).setVisible(true);
+} else if(ae.getSource()==cash_withdrawl){
+    setVisible(false);
+    new Withdrawl(pin).setVisible(true);
 }
     }
 

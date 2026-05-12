@@ -145,6 +145,7 @@ public class Signup_3 extends JFrame implements ActionListener{
         submit.setFont(new Font("Raleway", Font.BOLD, 14));
         submit.addActionListener(this);
         submit.setBounds(250, 585, 100, 30);
+        
         add(submit);
 
         cancel = new JButton("Cancel");
@@ -206,6 +207,11 @@ try{
 connection c = new connection();
     String query = "insert into signup_3 values('"+formno+"','"+ type+"','"+card_number+"','"+pin_number+"','"+services+"')";
     c.s.executeUpdate(query);
+
+
+
+    setVisible(false);
+    new Deposit(pin_number).setVisible(false);
 }
 
 catch(Exception e){
@@ -215,6 +221,7 @@ catch(Exception e){
  }
         else if(ae.getSource()==cancel){
 setVisible(false);
+new Login().setVisible(true);
         }
     }
 
