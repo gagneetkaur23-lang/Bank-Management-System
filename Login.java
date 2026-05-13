@@ -29,7 +29,7 @@ JLabel text= new JLabel("WELCOME TO ATM");            //add text to frame
 text.setFont(new Font("osward",Font.BOLD,38));       //change font
 text.setBounds(200,40,400,40);                //set size and location 
 add(text);                                                       //show text
-                                                        
+
 JLabel cardno= new JLabel("CARD NO:");                     
 cardno.setFont(new Font("raleway",Font.BOLD,28));
 cardno.setBounds(120,150,400,40);
@@ -81,8 +81,8 @@ public void actionPerformed(ActionEvent ae){
 
 
     if(ae.getSource()==login){
-        
-        
+
+
         try{
 connection c= new connection();
         String cardno= cardTextField.getText();
@@ -91,13 +91,14 @@ connection c= new connection();
 ResultSet rs=c.s.executeQuery(query);
 if(rs.next()){
 setVisible(false);
+new Transactions().setVisible(true);
 new Transactions(pin).setVisible(true);
 }
 else{
     JOptionPane.showMessageDialog(null, "Incorrect Card Number or Pin!");
 }
         }
-        
+
 
         catch(Exception e){
 

@@ -15,7 +15,7 @@ public class Withdrawl extends JFrame implements ActionListener{
     Withdrawl(String pin){
         this.pin=pin;
         setLayout(null);
- ImageIcon i1=new ImageIcon("images/atm.jpg");            //image set
+  ImageIcon i1=new ImageIcon("images/atm.jpg");            //image set
 
 Image i2= i1.getImage().getScaledInstance(850,730,Image.SCALE_DEFAULT) ;  //put image into JLable to visible
 ImageIcon i3= new ImageIcon(i2);
@@ -50,6 +50,8 @@ setSize(800,690);
  setLocation(270,0);
  setUndecorated(true);
         setVisible(true);
+
+
 
     }
 

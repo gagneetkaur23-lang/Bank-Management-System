@@ -6,6 +6,34 @@
     "configurations": [
         {
             "type": "java",
+            "name": "FastCash",
+            "request": "launch",
+            "mainClass": "FastCash",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
+            "name": "Pin_change",
+            "request": "launch",
+            "mainClass": "Pin_change",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
+            "name": "Fast_cash",
+            "request": "launch",
+            "mainClass": "Fast_cash",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
+            "name": "Fash_cash",
+            "request": "launch",
+            "mainClass": "Fash_cash",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
             "name": "Withdrawl",
             "request": "launch",
             "mainClass": "Withdrawl",

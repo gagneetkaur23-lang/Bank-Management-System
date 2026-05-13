@@ -40,6 +40,7 @@ image.add(cash_withdrawl);
 
  fast_cash = new JButton("FAST CASH");
 fast_cash.setBounds(160,355,130,25);
+fast_cash.addActionListener(this);
 image.add(fast_cash);
 
  mini_statement = new JButton("MINI STATEMENT ");
@@ -48,6 +49,7 @@ image.add(mini_statement);
 
  pin_change = new JButton("PIN CHANGE");
 pin_change.setBounds(160,385,130,25);
+pin_change.addActionListener(this);
 image.add(pin_change);
 
  balance = new JButton("BALANCE ENQUIRY");
@@ -79,6 +81,15 @@ else if(ae.getSource()== deposit){
 } else if(ae.getSource()==cash_withdrawl){
     setVisible(false);
     new Withdrawl(pin).setVisible(true);
+}
+else if(ae.getSource()==fast_cash){
+    setVisible(false);
+    new Fast_cash(pin).setVisible(true);
+}
+
+else if(ae.getSource()==pin_change){
+    setVisible(false);
+    new Pin_change(pin).setVisible(true);
 }
     }
 
