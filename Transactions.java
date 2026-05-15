@@ -54,6 +54,7 @@ image.add(pin_change);
 
  balance = new JButton("BALANCE ENQUIRY");
 balance.setBounds(320,385,150,25);
+balance.addActionListener(this);
 image.add(balance);
 
  exit = new JButton("EXIT");
@@ -90,6 +91,9 @@ else if(ae.getSource()==fast_cash){
 else if(ae.getSource()==pin_change){
     setVisible(false);
     new Pin_change(pin_number).setVisible(true);
+} else if(ae.getSource()==balance){
+    setVisible(false);
+    new Balance_enquiry(pin_number).setVisible(true);
 }
     }
 

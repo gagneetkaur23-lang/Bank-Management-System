@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Balance_enquiry",
+            "request": "launch",
+            "mainClass": "Balance_enquiry",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
             "name": "FastCash",
             "request": "launch",
             "mainClass": "FastCash",
