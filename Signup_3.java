@@ -11,7 +11,7 @@ public class Signup_3 extends JFrame implements ActionListener{
     String formno;
 
     Signup_3(String formno) {
-        this.formno=formno;
+       this.formno=formno;
         setLayout(null);
         setTitle("NEW ACCOUNT APPLICATION FORM - PAGE 3");
 
@@ -30,6 +30,7 @@ public class Signup_3 extends JFrame implements ActionListener{
         r1 = new JRadioButton("Saving Account");
         r1.setFont(new Font("Raleway", Font.BOLD, 16));
         r1.setBackground(Color.WHITE);
+        r1.addActionListener(this);
          //r1.setForeground(Color.BLACK);
         r1.setBounds(100, 133, 250, 30);
         add(r1);
@@ -37,12 +38,14 @@ public class Signup_3 extends JFrame implements ActionListener{
         r2 = new JRadioButton("Fixed Deposit Account");
         r2.setFont(new Font("Raleway", Font.BOLD, 16));
         r2.setBackground(Color.WHITE);
+         r2.addActionListener(this);
         r2.setBounds(350, 133, 300, 20);
         add(r2);
 
         r3 = new JRadioButton("Current Account");
         r3.setFont(new Font("Raleway", Font.BOLD, 16));
         r3.setBackground(Color.WHITE);
+         r3.addActionListener(this);
         r3.setBounds(100, 170, 250, 20);
         add(r3);
 
@@ -165,6 +168,7 @@ public class Signup_3 extends JFrame implements ActionListener{
 
     public void actionPerformed(ActionEvent ae){
         if(ae.getSource()== submit){
+           
 String type=null;
 if(r1.isSelected()){
 type="saving account";
@@ -179,7 +183,7 @@ if(r4.isSelected()){
 type="recurring deposit account";
 }
  Random random = new Random();
- String card_number= ""+(Math.abs(random.nextLong() % 90000000L) + 40904300000000L);
+ String card_number= ""+(Math.abs(random.nextLong() % 90000000L) + 4098043000000000L);
 String pin_number =""+(Math.abs(random.nextLong() % 9000L) + 1000L);
 
 String services="";
@@ -206,14 +210,20 @@ try{
 
 connection c = new connection();
     String query = "insert into signup_3 values('"+formno+"','"+ type+"','"+card_number+"','"+pin_number+"','"+services+"')";
+     String query2 = "insert into login values('"+formno+"','"+ card_number+"','"+pin_number+"')";
     c.s.executeUpdate(query);
+    c.s.executeUpdate(query2);
+    
+
+
+JOptionPane.showMessageDialog(null, "Card Number:"+" "+card_number+ "\n Pin:"+" "+pin_number);
 
 
 
     setVisible(false);
     new Deposit(pin_number).setVisible(false);
-}
 
+}
 catch(Exception e){
     System.out.println(e);
 }
@@ -221,7 +231,7 @@ catch(Exception e){
  }
         else if(ae.getSource()==cancel){
 setVisible(false);
-new Login().setVisible(true);
+new Login(formno).setVisible(true);
         }
     }
 

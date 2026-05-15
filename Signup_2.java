@@ -25,7 +25,7 @@ JComboBox<String> religion_,category_,income_,qualification_,occupation_;
 String formno;
 
    public Signup_2(String formno){
-        this.formno = formno;
+        //this.formno = formno;
  setTitle("NEW ACCOUNT APPLICATION FORM - PAGE 2");
 setLayout(null);
 
@@ -266,7 +266,7 @@ if(a_yes.isSelected()){
     } 
     else{
     connection c = new connection();
-    String query = "insert into signup_2 values('"+formno+"','"+religion+"','"+category+"','"+income+"','"+qualification+"','"+occupation+"','"+pan+"','"+aadhar+"','"+senior_citizen+"','"+exist_account+"')";
+    String query = "insert into signup_2 values('"+this.formno+"','"+religion+"','"+category+"','"+income+"','"+qualification+"','"+occupation+"','"+pan+"','"+aadhar+"','"+senior_citizen+"','"+exist_account+"')";
     c.s.executeUpdate(query);
 
 

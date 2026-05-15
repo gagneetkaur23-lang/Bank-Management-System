@@ -9,9 +9,9 @@ import java.awt.event.*;
 
 public class Transactions extends JFrame implements ActionListener{
     JButton balance,pin_change,mini_statement,deposit,cash_withdrawl,fast_cash,exit;
-    String pin;
-    Transactions(String pin){
-this.pin = pin;
+    String pin_number;
+    Transactions(String pin_number){
+this.pin_number = pin_number;
         setLayout(null);
 
         ImageIcon i1=new ImageIcon("images/atm.jpg");            //image set
@@ -77,19 +77,19 @@ if(ae.getSource()==exit){
 }
 else if(ae.getSource()== deposit){
     setVisible(false);
-    new Deposit(pin).setVisible(true);
+    new Deposit(pin_number).setVisible(true);
 } else if(ae.getSource()==cash_withdrawl){
     setVisible(false);
-    new Withdrawl(pin).setVisible(true);
+    new Withdrawl(pin_number).setVisible(true);
 }
 else if(ae.getSource()==fast_cash){
     setVisible(false);
-    new Fast_cash(pin).setVisible(true);
+    new FastCash(pin_number).setVisible(true);
 }
 
 else if(ae.getSource()==pin_change){
     setVisible(false);
-    new Pin_change(pin).setVisible(true);
+    new Pin_change(pin_number).setVisible(true);
 }
     }
 

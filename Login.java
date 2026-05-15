@@ -5,10 +5,11 @@ import java.sql.*;
 public class Login extends JFrame implements ActionListener {
 
 JButton login,clear,signup;
-JTextField cardTextField;              // for clear written data
-JPasswordField pinTextField;              //for hidden pin like black dots
-
-Login(){
+JTextField card_number;              // for clear written data
+JPasswordField pin_number;              //for hidden pin like black dots
+String formno;
+Login(String formno){
+    this.formno= formno;
     setTitle("AUTOMATED TELLER MACHINE");              //set title
 
     setLayout(null);
@@ -35,20 +36,20 @@ cardno.setFont(new Font("raleway",Font.BOLD,28));
 cardno.setBounds(120,150,400,40);
 add(cardno);
 
-cardTextField=new JTextField();
-cardTextField.setBounds(300,150,250,30);
-cardTextField.setFont(new Font("Arial",Font.BOLD,14));
-add(cardTextField);
+card_number=new JTextField();
+card_number.setBounds(300,150,250,30);
+card_number.setFont(new Font("Arial",Font.BOLD,14));
+add(card_number);
 
  JLabel pin= new JLabel("PIN:");
 pin.setFont(new Font("raleway",Font.BOLD,28));
 pin.setBounds(120,220,250,30);
 add(pin);
 
- pinTextField=new JPasswordField();
-pinTextField.setBounds(300,220,250,30);
-pinTextField.setFont(new Font("Arial",Font.BOLD,14));
-add(pinTextField);
+ pin_number=new JPasswordField();
+pin_number.setBounds(300,220,250,30);
+pin_number.setFont(new Font("Arial",Font.BOLD,14));
+add(pin_number);
 
 login= new JButton("SIGN IN");                    //create login button
 login.setBounds(300,300,100,30);              //set size and location
@@ -85,14 +86,14 @@ public void actionPerformed(ActionEvent ae){
 
         try{
 connection c= new connection();
-        String cardno= cardTextField.getText();
-        String pin= pinTextField.getText();
-        String query= "select * from login where cardno= '"+cardno+"' and pin ='"+pin+"'";
+        String cardno= card_number.getText();
+        String pin_no= pin_number.getText();
+        String query= "select * from login where card_number= '"+cardno+"' and pin_number ='"+pin_no+"'";
 ResultSet rs=c.s.executeQuery(query);
 if(rs.next()){
 setVisible(false);
-new Transactions().setVisible(true);
-new Transactions(pin).setVisible(true);
+new Transactions(pin_no).setVisible(true);
+
 }
 else{
     JOptionPane.showMessageDialog(null, "Incorrect Card Number or Pin!");
@@ -105,8 +106,8 @@ else{
         }
     }
     else if(ae.getSource()==clear){
-cardTextField.setText("");
-pinTextField.setText("");
+card_number.setText("");
+pin_number.setText("");
     }
     else if(ae.getSource()==signup){
 setVisible(false);
@@ -115,6 +116,6 @@ new Signup().setVisible(true);
 }
 
     public static void main(String[] args){
-        new Login();
+        new Login("");
     }
 }

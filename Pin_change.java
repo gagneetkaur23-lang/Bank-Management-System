@@ -3,24 +3,24 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-//import javax.swing.JTextField;
 
-import javax.swing.JOptionPane;
-import java.util.*;
+//import javax.swing.JTextField;
+import javax.swing.JTextField;
+
+//import java.util.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.*;
+//import java.awt.event.*;
 //import java.sql.ResultSet;
 import java.awt.event.ActionListener;
 
 
 public class Pin_change extends JFrame implements ActionListener{
-    JPasswordField pinTextField,repinTextField;
-    String pin;
+    JTextField pin,repin;
+    String pin_number;
     JButton change,back;
-   Pin_change(String pin){
-this.pin = pin;
+   Pin_change(String pin_number){
+this.pin_number = pin_number;
         setLayout(null);
 
         ImageIcon i1=new ImageIcon("images/atm.jpg");            //image set
@@ -43,10 +43,10 @@ pintext.setBounds(160,280,700,30);
 pintext.setForeground(Color.WHITE);
 image.add(pintext);
 
-pinTextField = new JPasswordField();
-pinTextField.setFont(new Font("raleway",Font.BOLD,8));
-pinTextField.setBounds(300,284,129,23);
-image.add(pinTextField);
+ pin= new JTextField();
+pin.setFont(new Font("raleway",Font.BOLD,8));
+pin.setBounds(300,284,129,23);
+image.add(pin);
 
 JLabel repintext= new JLabel(" Re-Enter Pin :");
 repintext.setFont(new Font("system",Font.BOLD,15));
@@ -54,10 +54,10 @@ repintext.setBounds(160,307,700,30);
 repintext.setForeground(Color.WHITE);
 image.add(repintext);
 
-repinTextField = new JPasswordField();
-repinTextField.setFont(new Font("raleway",Font.BOLD,8));
-repinTextField.setBounds(300,311,129,21);
-image.add(repinTextField);
+repin = new JTextField();
+repin.setFont(new Font("raleway",Font.BOLD,8));
+repin.setBounds(300,311,129,21);
+image.add(repin);
 
 change = new JButton("CHANGE ");
 change.setBounds(320,365,130,25);
@@ -84,8 +84,8 @@ setSize(800,690);
 
       if(ae.getSource()==change){
          try{
-         String npin = pinTextField.getText();
-         String rpin= repinTextField.getText();
+         String npin = pin.getText();
+         String rpin= repin.getText();
 
          if (!npin.equals(rpin)){
             JOptionPane.showMessageDialog(null, "Entered Pin does not match");
@@ -102,9 +102,9 @@ setSize(800,690);
             
          }
          connection c = new connection();
-         String q1="update bank set pin='"+rpin+"' where pinTextField= '"+pinTextField+"'";
-          String q2="update login set pin='"+rpin+"' where pinTextField = '"+pinTextField+"'";
- String q3="update signup_3 set pin='"+rpin+"' where pinTextField = '"+pinTextField+"'";
+         String q1="update bank set pin_number='"+rpin+"' where pin_number= '"+pin_number+"'";
+          String q2="update login set pin_number='"+rpin+"' where pin_number = '"+pin_number+"'";
+ String q3="update signup_3 set pin_number='"+rpin+"' where pin_number= '"+pin_number+"'";
 
  c.s.executeUpdate(q1);
   c.s.executeUpdate(q2);
@@ -112,7 +112,7 @@ setSize(800,690);
 
    JOptionPane.showMessageDialog(null, "PIN changed Successfully");
    setVisible(false);
-   new Transactions(pin).setVisible(true);
+   new Transactions(pin_number).setVisible(true);
       }
    
    catch(Exception e){
@@ -122,7 +122,7 @@ setSize(800,690);
       
       else if(ae.getSource()==back){
 setVisible(false);
-   new Transactions(pin).setVisible(true);
+   new Transactions(pin_number).setVisible(true);
       }
       
    }

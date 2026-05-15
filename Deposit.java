@@ -11,9 +11,9 @@ import java.awt.event.*;
 public class Deposit extends JFrame implements ActionListener{
     JButton deposit,back;
     JTextField textTextField;
-    String pin;
-    Deposit(String pin){
-        this.pin=pin;
+    String pin_number;
+    Deposit(String pin_number){
+        this.pin_number=pin_number;
         setLayout(null);
  ImageIcon i1=new ImageIcon("images/atm.jpg");            //image set
 
@@ -68,11 +68,11 @@ if(amount.equals("")){
 }
 
 connection c = new connection();
-String data = "insert into bank values('"+pin+"','"+date+"','Deposit','"+amount+"')";
+String data = "insert into bank values('"+pin_number+"','"+date+"','Deposit','"+amount+"')";
 c.s.executeUpdate(data);
 JOptionPane.showMessageDialog(null, "RS"+" "+amount+" "+"Deposited Successfully");
 setVisible(false);
-new Transactions(pin).setVisible(true);
+new Transactions(pin_number).setVisible(true);
 }
 catch(Exception e ){
     System.out.println(e);
@@ -82,7 +82,7 @@ catch(Exception e ){
 
         if (ae.getSource()==back){
             setVisible(false);
-new Transactions(pin).setVisible(true);
+new Transactions(pin_number).setVisible(true);
         }
 
     }

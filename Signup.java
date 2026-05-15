@@ -14,6 +14,7 @@ import java.awt.event.*;
 
 public class Signup extends JFrame implements ActionListener{
 String random;
+String formno;
 JTextField nameTextField,f_nameTextField,emailTextField,genderTextField,marital_statusTextField,addressTextField,cityTextField,stateTextField,pincodeTextField;
 JButton next;
 JRadioButton male,female,married,unmarried,other;
@@ -29,7 +30,7 @@ JDateChooser datechooser;
         setVisible(true);
 
         Random ran=new Random();
-        String random =""+(Math.abs(ran.nextLong() % 9000L) + 1000L);
+         random =""+(Math.abs(ran.nextLong() % 9000L) + 1000L);
 
 
         //  long first4 = (no.nextLong() % 9000L) + 1000L;  
@@ -216,6 +217,7 @@ setVisible(true);
     }
     @Override
 public void actionPerformed(ActionEvent ae){
+    if(ae.getSource()==next){
     String formno=""+ random;
     String name= nameTextField.getText();
     String f_name=f_nameTextField.getText();
@@ -261,12 +263,13 @@ else{
 }
 
 }
+    
 
     catch(Exception e){
 System.out.println(e);
     }
 }
-
+}
 
 
     public static void main(String[] args){

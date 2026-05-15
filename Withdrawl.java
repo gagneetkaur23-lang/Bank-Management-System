@@ -11,9 +11,9 @@ import java.awt.event.*;
 public class Withdrawl extends JFrame implements ActionListener{
     JButton withdraw,back;
     JTextField textTextField;
-    String pin;
-    Withdrawl(String pin){
-        this.pin=pin;
+    String pin_number;
+    Withdrawl(String pin_number){
+        this.pin_number=pin_number;
         setLayout(null);
   ImageIcon i1=new ImageIcon("images/atm.jpg");            //image set
 
@@ -72,11 +72,11 @@ if(amount.equals("")){
 }
 
 connection c = new connection();
-String data = "insert into bank values('"+pin+"','"+date+"','Withdrawl','"+amount+"')";
+String data = "insert into bank values('"+pin_number+"','"+date+"','Withdrawl','"+amount+"')";
 c.s.executeUpdate(data);
 JOptionPane.showMessageDialog(null, "RS"+" "+amount+" "+"Withdraw Successfully");
 setVisible(false);
-new Transactions(pin).setVisible(true);
+new Transactions(pin_number).setVisible(true);
 }
 catch(Exception e ){
     System.out.println(e);
@@ -86,7 +86,7 @@ catch(Exception e ){
 
        if (ae.getSource()==back){
            setVisible(false);
-new Transactions(pin).setVisible(true);
+new Transactions(pin_number).setVisible(true);
        }
 
     }
