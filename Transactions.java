@@ -45,6 +45,7 @@ image.add(fast_cash);
 
  mini_statement = new JButton("MINI STATEMENT ");
 mini_statement.setBounds(320,355,150,25);
+mini_statement.addActionListener(this);
 image.add(mini_statement);
 
  pin_change = new JButton("PIN CHANGE");
@@ -94,6 +95,9 @@ else if(ae.getSource()==pin_change){
 } else if(ae.getSource()==balance){
     setVisible(false);
     new Balance_enquiry(pin_number).setVisible(true);
+}else if(ae.getSource()==mini_statement){
+    setVisible(false);
+    new Mini_statement(pin_number).setVisible(true);
 }
     }
 

@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MiniStatement",
+            "request": "launch",
+            "mainClass": "MiniStatement",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
+            "name": "Mini_statement",
+            "request": "launch",
+            "mainClass": "Mini_statement",
+            "projectName": "BANK MANAGEMENT SYSTEM_f03bd4b"
+        },
+        {
+            "type": "java",
             "name": "Balance_enquiry",
             "request": "launch",
             "mainClass": "Balance_enquiry",
