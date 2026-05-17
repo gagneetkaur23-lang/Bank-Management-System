@@ -96,7 +96,7 @@ else if(ae.getSource()==pin_change){
     setVisible(false);
     new Balance_enquiry(pin_number).setVisible(true);
 }else if(ae.getSource()==mini_statement){
-    setVisible(false);
+   
     new Mini_statement(pin_number).setVisible(true);
 }
     }

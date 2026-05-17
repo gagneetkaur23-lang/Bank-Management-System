@@ -19,20 +19,29 @@ Mini_statement(String pin_number){
 
 
          JLabel cardno = new JLabel();
-        //cardno.setFont(new Font("raleway",Font.BOLD,19));
-        cardno.setBounds(20,36,300,40);
+        cardno.setFont(new Font("raleway",Font.BOLD,15));
+        cardno.setBounds(20,76,400,30);
         add(cardno);
+
+        
+        JLabel mini = new JLabel();
+        mini.setBounds(20, 140, 400, 200);
+        add(mini);
+
+         JLabel balanceLabel = new JLabel();
+        balanceLabel.setBounds(20, 400, 300, 20);
+        add(balanceLabel);
         
         try{
 
     connection c = new connection();
 
     ResultSet resultset = c.s.executeQuery(
-            "select * from login where pin = '"+pin_number+"'"
+            "select * from login where pin_number = '"+pin_number+"'"
     );
 
     while(resultset.next()){
-            cardno.setText(("Card Number: XXXX-XXXX-XXXX-")+resultset.getString("card_number").substring(12));
+            cardno.setText(("Card Number:   XXXX-XXXX-XXXX-")+resultset.getString("card_number").substring(12));
        
     }
 
@@ -40,6 +49,29 @@ Mini_statement(String pin_number){
 
     System.out.println(e);
 }
+ try {
+            connection c = new connection ();
+            int balance = 0;
+            ResultSet rs = c.s.executeQuery("select * from bank where pin_number = '"+pin_number+"'");
+            
+            // HTML ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਮਲਟੀਪਲ ਲਾਈਨਾਂ ਦਿਖਾਉਣ ਲਈ
+            String transactions = "<html>"; 
+            while(rs.next()){
+                transactions += rs.getString("date") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + rs.getString("type") + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + rs.getString("amount") + "<br><br>";
+                
+                if (rs.getString("type").equals("Deposit")) {
+                    balance += Integer.parseInt(rs.getString("amount"));
+                } else {
+                    balance -= Integer.parseInt(rs.getString("amount"));
+                }
+            }
+            transactions += "</html>";
+            mini.setText(transactions);
+            balanceLabel.setText("Your total Balance is Rs " + balance);
+            
+        } catch (Exception e) {
+            System.out.println(e);
+        }
        
 getContentPane().setBackground(Color.WHITE);
     setSize(400,600);

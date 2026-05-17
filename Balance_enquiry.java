@@ -40,7 +40,7 @@ try{
             
            
             
-                ResultSet resultSet = c.s.executeQuery("select * from bank where pin = '"+pin_number+"'");
+                ResultSet resultSet = c.s.executeQuery("select * from bank where pin_number = '"+pin_number+"'");
                
                 while (resultSet.next()){
                     if (resultSet.getString("type").equals("Deposit")){

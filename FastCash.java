@@ -81,7 +81,7 @@ setSize(800,690);
             connection c = new connection();
             Date date = new Date();
             
-                ResultSet resultSet = c.s.executeQuery("select * from bank where pin = '"+pin_number+"'");
+                ResultSet resultSet = c.s.executeQuery("select * from bank where pin_number = '"+pin_number+"'");
                 int balance =0;
                 while (resultSet.next()){
                     if (resultSet.getString("type").equals("Deposit")){
@@ -105,7 +105,7 @@ setSize(800,690);
                 E.printStackTrace();
             }
             setVisible(false);
-            new FastCash(pin_number);
+            new Transactions(pin_number);
         }
 
 
